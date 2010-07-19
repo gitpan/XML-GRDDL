@@ -7,7 +7,7 @@ use base qw[XML::GRDDL::External];
 use RDF::Trine qw[iri];
 use Scalar::Util qw[blessed];
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 # hard-code certain namespaces to skip...
 our @ignore = (

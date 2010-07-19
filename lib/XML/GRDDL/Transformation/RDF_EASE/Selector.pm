@@ -3,7 +3,7 @@ package XML::GRDDL::Transformation::RDF_EASE::Selector;
 use 5.008;
 use common::sense;
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 sub specificity
 {

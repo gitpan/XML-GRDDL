@@ -35,3 +35,4 @@ lib/XML/GRDDL/Transformation/RDF_EASE/Functional.pm
 lib/XML/GRDDL/Transformation/RDF_EASE.pm
 lib/XML/GRDDL/Transformation/RDF_EASE/Selector.pm
 lib/XML/GRDDL/Transformation/XSLT_1.pm
+lib/XML/GRDDL/Transformation/XSLT_2.pm

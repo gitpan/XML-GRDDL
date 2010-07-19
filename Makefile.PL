@@ -14,8 +14,6 @@ readme_from         $fn;
 author              'Toby Inkster <tobyink@cpan.org>';
 license             'perl';
 
-test_requires       'Test::More' => '0.61';
-
 requires            'Carp'               => '1.00';
 requires            'common::sense'      => 0;
 requires            'CSS'                => 0;
@@ -25,13 +23,12 @@ requires            'Exporter'           => 0;
 requires            'RDF::RDFa::Parser'  => '1.09_10';
 requires            'RDF::Trine'         => '0.124';
 requires            'Scalar::Util'       => 0;
-requires            'XML::LibXML'        => '1.60';
+test_requires       'Test::More'         => '0.61';
 requires            'URI'                => '1.30';
 requires            'URI::Escape'        => 0;
-requires            'XML::LibXML'        => 0;
+requires            'XML::LibXML'        => '1.60';
 requires            'XML::LibXSLT'       => 0;
-
-# install_script 'fingerw';
+recommends          'XML::Saxon::XSLT2'  => '0.003';
 
 resources(
 	'homepage'   => "http://search.cpan.org/dist/$dist/",

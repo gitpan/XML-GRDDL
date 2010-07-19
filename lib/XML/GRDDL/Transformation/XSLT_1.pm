@@ -8,7 +8,7 @@ use Scalar::Util qw[blessed];
 use XML::LibXML;
 use XML::LibXSLT;
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 sub transform
 {

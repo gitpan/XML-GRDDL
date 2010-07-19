@@ -7,7 +7,7 @@ use base qw[XML::GRDDL::Transformation];
 use Scalar::Util qw[blessed];
 use XML::GRDDL::Transformation::RDF_EASE::Functional qw[:standard];
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 sub transform
 {

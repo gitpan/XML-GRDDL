@@ -14,20 +14,20 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 33baec8b4069ff94c855957938acb6daede422c6 Changes
-SHA1 7873ea37e0984108d12cc797e59f1d64c61e7dea Changes.ttl
-SHA1 76c8f4f5f97f5b1003a7b263ba9d70efedb25706 Changes.xml
-SHA1 a630aeafbd204afa093cc90263ebbce75b714af2 MANIFEST
+SHA1 babec63ed827334ebba3b36ffac03b0568c1a2eb Changes
+SHA1 2957aa540e35ca1dc884cb10c0918436574cd528 Changes.ttl
+SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 Changes.xml
+SHA1 002975a5cc75d8b6ff91186061766e199bba718e MANIFEST
 SHA1 354096507daf87ed4425cbff4f7aba6cf5bae921 MANIFEST.SKIP
-SHA1 31cb991183a9fcbbe7808d29e243b71064a2a3ef META.yml
-SHA1 df38f9a1fcf160f77d050dec3387e2a2c68a1554 Makefile.PL
+SHA1 56532a112fafbdcbdae1b3ac1a2d59b466d39372 META.yml
+SHA1 b754ac71b9ae896a630d5cb58cd0cd215d12eafe Makefile.PL
 SHA1 c4c152a300a5cf2c8c3c2bff96141605535014b5 README
 SHA1 8842ca38ce27ccf75e1ce8f5dfb93fa62d933b2e inc/Module/AutoInstall.pm
 SHA1 1ebec4119486a032a5612a403e8d7b7be973e938 inc/Module/Install.pm
 SHA1 bec3c7f9af6e1a3cb4d143249956c98af30f0552 inc/Module/Install/AutoInstall.pm
 SHA1 24038af925a69df41972971356ccce885b0fe2ad inc/Module/Install/Base.pm
 SHA1 8f96eddfef548c9328457fbb17a121631cda356b inc/Module/Install/Can.pm
-SHA1 b19da2715a136aba51510f687a7b4e431e0a4bec inc/Module/Install/DOAPChangeSets.pm
+SHA1 b0f2d1c3f7c61133d8ea4ffed808adf9de13c0f6 inc/Module/Install/DOAPChangeSets.pm
 SHA1 ec29048e48edd9c9c55f9de7b773bd7c904335ad inc/Module/Install/Fetch.pm
 SHA1 01862227830d2547f38275eaee0eb9f5add5a252 inc/Module/Install/Include.pm
 SHA1 0384525d85d51e99532e3ad8729d870113646d14 inc/Module/Install/Makefile.pm
@@ -36,21 +36,22 @@ SHA1 a615bb050ca0b2d79bfa0224addcb83019a53b09 inc/Module/Install/ReadmeFromPod.p
 SHA1 5c25f1104c0038041e3b93e0660c39171e4caf2b inc/Module/Install/Win32.pm
 SHA1 94d47349c803c4bd2a9230d25e4db0b6aaf1acd8 inc/Module/Install/WriteAll.pm
 SHA1 1e6399a0585817abef500c34fce676fb9b0545f0 inc/Test/Signature.pm
-SHA1 d1eb7b4312ef493b4e347b5e338e17e174335993 lib/XML/GRDDL.pm
-SHA1 6eebe9451fb4c75037b9376fb17e3f537c8089cb lib/XML/GRDDL/External.pm
-SHA1 e0563c9660015fdb02e65e7754064fd82b9a9d01 lib/XML/GRDDL/Namespace.pm
-SHA1 d3bf46b84bd56d57400b5c5060b4e26532aa9b8f lib/XML/GRDDL/Profile.pm
-SHA1 6acaa2fd2d72b1fe9c26d860c4485755cfee7da4 lib/XML/GRDDL/Transformation.pm
-SHA1 ddac9cec79085e59fca6a6c5be37fcd3895c213c lib/XML/GRDDL/Transformation/RDF_EASE.pm
-SHA1 2f983693219a1bfa8695b1e5bb636f42f751ad66 lib/XML/GRDDL/Transformation/RDF_EASE/Functional.pm
-SHA1 15230299c6ba447b129e6f35516618d4051df252 lib/XML/GRDDL/Transformation/RDF_EASE/Selector.pm
-SHA1 b18313fedba4eb3b7fe596a03438de23f8e77dd4 lib/XML/GRDDL/Transformation/XSLT_1.pm
+SHA1 4c36eec10cf7d259cfc3c7543138d2eaba776f21 lib/XML/GRDDL.pm
+SHA1 0e9ae2156a3f8e537e2a420869120ba8eaba9bb7 lib/XML/GRDDL/External.pm
+SHA1 83d38ad760f221f168249008841ce0496803aeee lib/XML/GRDDL/Namespace.pm
+SHA1 a3cbc465732a0b064e50bd0b1798234fabd06b54 lib/XML/GRDDL/Profile.pm
+SHA1 5640c7bba218fc3d7f4915387a2a534ee8bb08a1 lib/XML/GRDDL/Transformation.pm
+SHA1 1d91712271c792251371e2cbb207998a8d4ee10c lib/XML/GRDDL/Transformation/RDF_EASE.pm
+SHA1 1ad724dc85367a619e77ff3b15739adcc9c3e064 lib/XML/GRDDL/Transformation/RDF_EASE/Functional.pm
+SHA1 57150f3e5be90975bcbe8ac566d0d97f5caf817c lib/XML/GRDDL/Transformation/RDF_EASE/Selector.pm
+SHA1 b7b5cc72ea6fa6ea63d4a057c6d1c5f13117e3f6 lib/XML/GRDDL/Transformation/XSLT_1.pm
+SHA1 0c0a3161584d7595aac27753f3576cf62df9ca2c lib/XML/GRDDL/Transformation/XSLT_2.pm
 SHA1 bb128dce2db8ad397dbeb957d79d084cc5d2391a t/00sig.t
 SHA1 f3bd5e850938963dea34a49157e46e7a7d091751 t/01basic.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iEYEARECAAYFAkw+HLsACgkQzr+BKGoqfTlX6ACgngDcMdMxFpScDgMsMm6zlGgA
-D7oAn2wtXaxeZubxUoPuZPtrt+3A3vqV
-=ocVC
+iEYEARECAAYFAkxDlyMACgkQzr+BKGoqfTmJHwCfdWqyJ3/JzRLfZ8lV4LHurS0L
++WUAn0P/9Q72VQMiAGeH7dhxbT64T04l
+=g09E
 -----END PGP SIGNATURE-----

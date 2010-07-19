@@ -18,6 +18,8 @@ no_index:
   directory:
     - inc
     - t
+recommends:
+  XML::Saxon::XSLT2: 0.003
 requires:
   CSS: 0
   CSS::Parse::PRDGrammar: 0
@@ -29,7 +31,7 @@ requires:
   Scalar::Util: 0
   URI: 1.30
   URI::Escape: 0
-  XML::LibXML: 0
+  XML::LibXML: 1.60
   XML::LibXSLT: 0
   common::sense: 0
   perl: 5.8.0
@@ -38,4 +40,4 @@ resources:
   homepage: http://search.cpan.org/dist/XML-GRDDL/
   license: http://dev.perl.org/licenses/
   repository: http://goddamn.co.uk/viewvc/perlmods/XML-GRDDL/
-version: 0.001
+version: 0.002

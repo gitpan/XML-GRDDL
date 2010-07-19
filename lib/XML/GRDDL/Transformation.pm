@@ -4,10 +4,11 @@ use 5.008;
 use common::sense;
 use base qw[XML::GRDDL::External];
 
-use XML::GRDDL::Transformation::XSLT_1;
 use XML::GRDDL::Transformation::RDF_EASE;
+use XML::GRDDL::Transformation::XSLT_1;
+BEGIN { eval 'use XML::GRDDL::Transformation::XSLT_2;'; }
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 sub new
 {
@@ -25,7 +26,10 @@ sub new
 	if ($response->header('content-type') =~ m#xslt?#i
 	||  $response->content =~ m#http://www.w3.org/1999/XSL/Transform#)
 	{
-		return bless $self, 'XML::GRDDL::Transformation::XSLT_1';
+		if ( XML::GRDDL::Transformation::XSLT_2->can('transform') )
+			{ return bless $self, 'XML::GRDDL::Transformation::XSLT_2'; }
+		else
+			{ return bless $self, 'XML::GRDDL::Transformation::XSLT_1'; }
 	}
 	elsif ($response->header('content-type') =~ /text\/(css|x\-rdf\+css)/i)
 	{
