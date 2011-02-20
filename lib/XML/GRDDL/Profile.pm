@@ -7,7 +7,7 @@ use base qw[XML::GRDDL::External];
 use RDF::Trine qw[iri];
 use Scalar::Util qw[blessed];
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 # hard-code certain profiles to skip...
 our @ignore = (
@@ -15,9 +15,32 @@ our @ignore = (
 	'http://www.w3.org/1999/xhtml/vocab#',
 	'http://www.w3.org/2003/g/data-view',
 	'http://www.w3.org/2003/g/data-view#',
-	qr{^http://purl\.org/uF/},
 	qr{^http://microformats\.org/profile/},
 	qr{^http://ufs\.cc/x/},
+	);
+
+# skip profile fetch...
+our %hard_coded = (
+	'http://dublincore.org/documents/dcq-html/'
+		=> ['http://www.w3.org/2000/06/dc-extract/dc-extract.xsl'],
+	'http://dublincore.org/documents/2008/08/04/dc-html/'
+		=> ['http://dublincore.org/transform/dc-html-20080804-grddl/dc-html2rdfxml.xsl'],
+	'http://purl.org/NET/erdf/profile'
+		=> ['http://purl.org/NET/erdf/extract-rdf.xsl'],
+	'http://purl.org/stuff/glink/'
+		=> ['http://danja.talis.com/glink/groklinks.xsl'],
+	'http://www.w3.org/2002/12/cal/hcal'
+		=> ['http://www.w3.org/2002/12/cal/glean-hcal.xsl'],
+	'http://www.w3.org/2006/03/hcard'
+		=> ['http://www.w3.org/2006/vcard/hcard2rdf.xsl'],
+	'http://www.purl.org/stuff/rev'
+		=> ['http://danja.talis.com/xmlns/rev_2007-11-09/hreview2rdfxml.xsl'],
+	'http://purl.org/net/ns/metaprof'
+		=> ['http://www.kanzaki.com/parts/xh2rdf.xsl'],
+	'http://ns.inria.fr/grddl/rdfa/'
+		=> ['http://ns.inria.fr/grddl/rdfa/2008/09/03/RDFa2RDFXML.xsl'],
+	'http://www.w3.org/2000/08/w3c-synd/'
+		=> ['http://www.w3.org/2000/08/w3c-synd/home2rss.xsl'],
 	);
 
 sub ignore
@@ -29,6 +52,12 @@ sub ignore
 sub transformations
 {
 	my ($self) = @_;
+	
+	if (defined $hard_coded{ $self->{uri} })
+	{
+		return @{ $hard_coded{ $self->{uri} } };
+	}
+	
 	my $response = $self->{grddl}->_fetch(
 		$self->{uri},
 		Referer  => $self->{referer},
@@ -90,7 +119,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT
 
-Copyright 2008-2010 Toby Inkster
+Copyright 2008-2011 Toby Inkster
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

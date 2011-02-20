@@ -10,7 +10,7 @@ use XML::GRDDL::Transformation::RDF_EASE::Selector;
 use Exporter;
 use XML::LibXML;
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 our @EXPORT_OK = qw(&rdfease_to_rdfa &parse_sheet &parse_value &bnode_for_element &rule_matches_node);
 our %EXPORT_TAGS = (

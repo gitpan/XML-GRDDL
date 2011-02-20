@@ -2,21 +2,22 @@ NAME
     XML::GRDDL - transform XML and XHTML to RDF
 
 SYNOPSIS
-     # Low-Level Interface
-     #
-     my $grddl = XML::GRDDL->new;
-     my @transformations = $grddl->discover($xmldoc, $baseuri);
-     foreach my $trans (@transformations)
-     {
-       # $t is an XML::GRDDL::Transformation
-       my ($output, $mediatype) = $t->transform($xmldoc);
-     }
+    High-level interface:
 
-     # High-Level Interface
-     #
      my $grddl = XML::GRDDL->new;
      my $model = $grddl->data($xmldoc, $baseuri);
      # $model is an RDF::Trine::Model
+
+    Low-level interface:
+
+     my $grddl = XML::GRDDL->new;
+     my @transformations = $grddl->discover($xmldoc, $baseuri);
+     foreach my $t (@transformations)
+     {
+       # $t is an XML::GRDDL::Transformation
+       my ($output, $mediatype) = $t->transform($xmldoc);
+       # $output is a string of type $mediatype.
+     }
 
 DESCRIPTION
     GRDDL is a W3C Recommendation for extracting RDF data from arbitrary XML
@@ -108,9 +109,11 @@ BUGS
 
 SEE ALSO
     XML::GRDDL::Transformation, XML::GRDDL::Namespace, XML::GRDDL::Profile,
-    XML::GRDDL::Transformation::RDF_EASE::Functional.
+    XML::GRDDL::Transformation::RDF_EASE::Functional, XML::Saxon::XSLT2.
 
     HTML::HTML5::Parser, RDF::RDFa::Parser, HTML::Microformats.
+
+    JSON::GRDDL.
 
     <http://www.w3.org/TR/grddl/>.
 
@@ -123,7 +126,7 @@ AUTHOR
     Toby Inkster <tobyink@cpan.org>.
 
 COPYRIGHT
-    Copyright 2008-2010 Toby Inkster
+    Copyright 2008-2011 Toby Inkster
 
     This library is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.

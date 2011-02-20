@@ -8,7 +8,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.95'
+generated_by: 'Module::Install version 1.00'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -26,7 +26,7 @@ requires:
   Carp: 1.00
   Data::UUID: 0
   Exporter: 0
-  RDF::RDFa::Parser: 1.09_10
+  RDF::RDFa::Parser: 1.094
   RDF::Trine: 0.124
   Scalar::Util: 0
   URI: 1.30
@@ -40,4 +40,4 @@ resources:
   homepage: http://search.cpan.org/dist/XML-GRDDL/
   license: http://dev.perl.org/licenses/
   repository: http://goddamn.co.uk/viewvc/perlmods/XML-GRDDL/
-version: 0.002
+version: 0.003

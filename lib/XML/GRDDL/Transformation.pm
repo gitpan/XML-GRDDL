@@ -4,19 +4,30 @@ use 5.008;
 use common::sense;
 use base qw[XML::GRDDL::External];
 
+use XML::GRDDL::Transformation::Hardcoded;
 use XML::GRDDL::Transformation::RDF_EASE;
 use XML::GRDDL::Transformation::XSLT_1;
 BEGIN { eval 'use XML::GRDDL::Transformation::XSLT_2;'; }
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 sub new
 {
 	my $class = shift;
 	my $self  = $class->SUPER::new(@_);
+	my $uri   = $self->{uri};
 	
-	my $response = $self->{grddl}->_fetch(
-		$self->{uri},
+	if ($XML::GRDDL::Transformation::Hardcoded::known{$uri})
+	{
+		my $new_class = sprintf(
+			'%s::%s',
+			$class,
+			$XML::GRDDL::Transformation::Hardcoded::known{$uri},
+			);
+		return bless $self, $new_class;
+	}
+	
+	my $response = $self->{grddl}->_fetch($uri,
 		Referer  => $self->{referer},
 		Accept   => 'application/xslt+xml, text/xslt, text/xsl, text/x-rdf+css, text/css',
 		);
@@ -61,6 +72,12 @@ sub model
 		if $rdf;
 	
 	return;
+}
+
+sub response
+{
+	my ($self) = @_;
+	return $self->{response};
 }
 
 1;
@@ -129,7 +146,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT
 
-Copyright 2008-2010 Toby Inkster
+Copyright 2008-2011 Toby Inkster
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

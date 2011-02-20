@@ -7,7 +7,7 @@ use base qw[XML::GRDDL::Transformation];
 use Scalar::Util qw[blessed];
 use XML::GRDDL::Transformation::RDF_EASE::Functional qw[:standard];
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 sub transform
 {
@@ -18,7 +18,7 @@ sub transform
 		$input = $input->toString;
 	}
 	
-	my $rdfa = &rdfease_to_rdfa($self->{'response'}->decoded_content, $input);
+	my $rdfa = &rdfease_to_rdfa($self->response->decoded_content, $input);
 
 	return ($rdfa, 'application/xhtml+xml') if wantarray;
 	return $rdfa;
@@ -33,7 +33,7 @@ sub model
 		$input = $input->toString;
 	}
 	
-	my $rdfa = &rdfease_to_rdfa($self->{'response'}->decoded_content, $input);
+	my $rdfa = &rdfease_to_rdfa($self->response->decoded_content, $input);
 	return $self->{grddl}->_rdf_model($rdfa, $self->{referer}, 'application/xhtml+xml', 1);
 }
 
@@ -62,7 +62,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT
 
-Copyright 2008-2010 Toby Inkster
+Copyright 2008-2011 Toby Inkster
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

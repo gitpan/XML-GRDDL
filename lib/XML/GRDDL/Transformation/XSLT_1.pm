@@ -8,13 +8,13 @@ use Scalar::Util qw[blessed];
 use XML::LibXML;
 use XML::LibXSLT;
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 sub transform
 {
 	my ($self, $input) = @_;
 	
-	my $response = $self->{'response'};
+	my $response = $self->response;
 	
 	my $parser    = XML::LibXML->new();
 	$parser->base_uri($response->base);
@@ -65,7 +65,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT
 
-Copyright 2008-2010 Toby Inkster
+Copyright 2008-2011 Toby Inkster
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

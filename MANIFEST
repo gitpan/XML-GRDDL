@@ -26,13 +26,15 @@ inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 inc/Test/Signature.pm
 
+lib/XML/GRDDL.pm
 lib/XML/GRDDL/External.pm
 lib/XML/GRDDL/Namespace.pm
-lib/XML/GRDDL.pm
 lib/XML/GRDDL/Profile.pm
 lib/XML/GRDDL/Transformation.pm
-lib/XML/GRDDL/Transformation/RDF_EASE/Functional.pm
+lib/XML/GRDDL/Transformation/Hardcoded.pm
+lib/XML/GRDDL/Transformation/Hardcoded/eRDF.pm
 lib/XML/GRDDL/Transformation/RDF_EASE.pm
+lib/XML/GRDDL/Transformation/RDF_EASE/Functional.pm
 lib/XML/GRDDL/Transformation/RDF_EASE/Selector.pm
 lib/XML/GRDDL/Transformation/XSLT_1.pm
 lib/XML/GRDDL/Transformation/XSLT_2.pm

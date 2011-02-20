@@ -8,7 +8,7 @@ use Scalar::Util qw[blessed];
 use XML::LibXML;
 use XML::Saxon::XSLT2 '0.003';
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 sub transform
 {
@@ -20,7 +20,7 @@ sub transform
 		$input = $input->documentElement->toString;
 	}
 	
-	my $response = $self->{'response'};
+	my $response = $self->response;
 	
 	my ($output, $type);
 	local $@ = undef;
@@ -62,7 +62,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT
 
-Copyright 2010 Toby Inkster
+Copyright 2010-2011 Toby Inkster
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

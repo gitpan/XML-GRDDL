@@ -26,7 +26,7 @@ my:v_0-001
 	dc:issued       "2010-07-14"^^xsd:date ;
 	:revision       "0.001"^^xsd:string ;
 	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/XML-GRDDL-0.001.tar.gz> ;
-	rdfs:label      "Original version"@en ;
+	rdfs:label      "first release"@en ;
 	rdfs:comment    "Forked from Swignition."@en ;
 	rdfs:seeAlso    <http://buzzword.org.uk/swignition/#swignition> .
 
@@ -38,6 +38,18 @@ my:v_0-002
 	dcs:changeset [
 		dcs:versus my:v_0-001 ;
 		dcs:item   [ rdfs:label "Optional XSLT 2.0 support via XML::Saxon::XSLT2."@en ; a dcs:Addition ]
+		] .
+
+my:v_0-003
+	a               :Version ;
+	dc:issued       "2011-02-20"^^xsd:date ;
+	:revision       "0.003"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/XML-GRDDL-0.003.tar.gz> ;
+	dcs:changeset [
+		dcs:versus my:v_0-002 ;
+		dcs:item   [ rdfs:label "Hard-code a number of profile URIs."@en ; a dcs:Addition ] ;
+		dcs:item   [ rdfs:label "Hard-code the eRDF transformation."@en ; a dcs:Addition ] ;
+		dcs:item   [ rdfs:label "Copyright 2011."@en ; a dcs:Documentation , dcs:Update ]
 		] .
 
 #############################################################
@@ -58,7 +70,7 @@ my:project
 	:tester         toby:i ;
 	:created        "2010-07-14"^^xsd:date ;
 	:license        <http://dev.perl.org/licenses/> ;
-	:release        my:v_0-001 , my:v_0-002 .
+	:release        my:v_0-001 , my:v_0-002 , my:v_0-003 .
 
 #############################################################
 

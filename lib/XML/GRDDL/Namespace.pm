@@ -7,7 +7,7 @@ use base qw[XML::GRDDL::External];
 use RDF::Trine qw[iri];
 use Scalar::Util qw[blessed];
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 # hard-code certain namespaces to skip...
 our @ignore = (
@@ -86,7 +86,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT
 
-Copyright 2008-2010 Toby Inkster
+Copyright 2008-2011 Toby Inkster
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

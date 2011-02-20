@@ -17,7 +17,7 @@ use XML::GRDDL::Profile;
 use XML::GRDDL::Transformation;
 use XML::LibXML;
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 sub new
 {
@@ -271,8 +271,11 @@ sub _rdf_model
 		or  $type eq 'application/atom+xml'
 		or  $type eq 'image/svg+xml')
 		{
-			my $config = RDF::RDFa::Parser::Config->new($type, '1.0',
-				keyword_bundles=>'rdfa grddl');
+			my $config = RDF::RDFa::Parser::Config->new(
+				$type,
+				'1.1',
+				default_profiles => 'http://www.w3.org/2003/g/data-view',
+				);
 			my $parser = RDF::RDFa::Parser->new($document, $uri, $config);
 			return $parser->graph if $nocache;
 			$self->{'cached-rdf'}->{$uri} = $parser->graph;
@@ -327,21 +330,22 @@ XML::GRDDL - transform XML and XHTML to RDF
 
 =head1 SYNOPSIS
 
- # Low-Level Interface
- #
- my $grddl = XML::GRDDL->new;
- my @transformations = $grddl->discover($xmldoc, $baseuri);
- foreach my $trans (@transformations)
- {
-   # $t is an XML::GRDDL::Transformation
-   my ($output, $mediatype) = $t->transform($xmldoc);
- }
+High-level interface:
 
- # High-Level Interface
- #
  my $grddl = XML::GRDDL->new;
  my $model = $grddl->data($xmldoc, $baseuri);
  # $model is an RDF::Trine::Model
+
+Low-level interface:
+
+ my $grddl = XML::GRDDL->new;
+ my @transformations = $grddl->discover($xmldoc, $baseuri);
+ foreach my $t (@transformations)
+ {
+   # $t is an XML::GRDDL::Transformation
+   my ($output, $mediatype) = $t->transform($xmldoc);
+   # $output is a string of type $mediatype.
+ }
 
 =head1 DESCRIPTION
 
@@ -460,11 +464,14 @@ your primary document cannot themselves rely on GRDDL.
 L<XML::GRDDL::Transformation>,
 L<XML::GRDDL::Namespace>,
 L<XML::GRDDL::Profile>,
-L<XML::GRDDL::Transformation::RDF_EASE::Functional>.
+L<XML::GRDDL::Transformation::RDF_EASE::Functional>,
+L<XML::Saxon::XSLT2>.
 
 L<HTML::HTML5::Parser>,
 L<RDF::RDFa::Parser>,
 L<HTML::Microformats>.
+
+L<JSON::GRDDL>.
 
 L<http://www.w3.org/TR/grddl/>.
 
@@ -478,7 +485,8 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT
 
-Copyright 2008-2010 Toby Inkster
+Copyright 2008-2011 Toby Inkster
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
+
