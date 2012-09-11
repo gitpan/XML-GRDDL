@@ -1,13 +1,13 @@
 package XML::GRDDL;
 
 use 5.008;
-use common::sense;
+use strict;
 use constant GRDDL_NS  => 'http://www.w3.org/2003/g/data-view#';
 use constant XHTML_NS  => 'http://www.w3.org/1999/xhtml';
 
 use Carp;
 use Data::UUID;
-use RDF::RDFa::Parser '1.09_10';
+use RDF::RDFa::Parser '1.097';
 use RDF::Trine qw[iri statement];
 use Scalar::Util qw[blessed];
 use URI;
@@ -17,7 +17,10 @@ use XML::GRDDL::Profile;
 use XML::GRDDL::Transformation;
 use XML::LibXML;
 
-our $VERSION = '0.003';
+our $VERSION = '0.004';
+
+use base 'Exporter';
+our @EXPORT_OK = qw( GRDDL_NS XHTML_NS );
 
 sub new
 {
@@ -53,13 +56,8 @@ sub data
 		$document = $parser->parse_string($document);
 	}
 	
-	my @transformations;
-	{
-		local $options{strings} = 0;
-		@transformations = $self->discover($document, $uri, %options);
-	}
-
 	my $model = RDF::Trine::Model->temporary_model;
+	my @transformations = $self->discover($document, $uri, %options, strings => 0);
 
 	foreach my $t (@transformations)
 	{
@@ -134,7 +132,7 @@ sub discover
 		my $parser = XML::LibXML->new;
 		$document = $parser->parse_string($document);
 	}
-
+	
 	my @transformations;
 
 	push @transformations,
@@ -163,7 +161,7 @@ sub _discover_from_rel_attribute
 {
 	my ($self, $document, $uri, %options) = @_;
 	my @transformations;
-	
+
 	my $profile_found = $options{'force_rel'};
 	
 	my $xpc = XML::LibXML::XPathContext->new;
@@ -274,8 +272,8 @@ sub _rdf_model
 			my $config = RDF::RDFa::Parser::Config->new(
 				$type,
 				'1.1',
-				default_profiles => 'http://www.w3.org/2003/g/data-view',
-				);
+				initial_context => 'http://www.w3.org/2003/g/data-view',
+			);
 			my $parser = RDF::RDFa::Parser->new($document, $uri, $config);
 			return $parser->graph if $nocache;
 			$self->{'cached-rdf'}->{$uri} = $parser->graph;
@@ -423,6 +421,18 @@ an LWP::UserAgent.
 
 =back
 
+=head2 Constants
+
+These constants may be exported upon request.
+
+=over
+
+=item C<< GRDDL_NS >>
+
+=item C<< XHTML_NS >>
+
+=back
+
 =head1 FEATURES
 
 XML::GRDDL supports transformations written in XSLT 1.0, and in RDF-EASE.
@@ -483,10 +493,15 @@ This module is derived from Swignition L<http://buzzword.org.uk/swignition/>.
 
 Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
-=head1 COPYRIGHT
+=head1 COPYRIGHT AND LICENCE
 
-Copyright 2008-2011 Toby Inkster
+Copyright 2008-2012 Toby Inkster
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
 
+=head1 DISCLAIMER OF WARRANTIES
+
+THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.

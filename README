@@ -76,6 +76,12 @@ DESCRIPTION
         Get/set the user agent used for HTTP requests. $ua, if supplied,
         must be an LWP::UserAgent.
 
+  Constants
+    These constants may be exported upon request.
+
+    "GRDDL_NS"
+    "XHTML_NS"
+
 FEATURES
     XML::GRDDL supports transformations written in XSLT 1.0, and in
     RDF-EASE.
@@ -125,9 +131,14 @@ SEE ALSO
 AUTHOR
     Toby Inkster <tobyink@cpan.org>.
 
-COPYRIGHT
-    Copyright 2008-2011 Toby Inkster
+COPYRIGHT AND LICENCE
+    Copyright 2008-2012 Toby Inkster
 
     This library is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
+
+DISCLAIMER OF WARRANTIES
+    THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+    WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+    MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 

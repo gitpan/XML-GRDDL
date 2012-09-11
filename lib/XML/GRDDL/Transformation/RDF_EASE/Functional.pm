@@ -2,7 +2,7 @@ package XML::GRDDL::Transformation::RDF_EASE::Functional;
 
 use 5.008;
 use base qw[Exporter];
-use common::sense;
+use strict;
 
 use CSS;
 use CSS::Parse::PRDGrammar;
@@ -10,7 +10,7 @@ use XML::GRDDL::Transformation::RDF_EASE::Selector;
 use Exporter;
 use XML::LibXML;
 
-our $VERSION = '0.003';
+our $VERSION = '0.004';
 
 our @EXPORT_OK = qw(&rdfease_to_rdfa &parse_sheet &parse_value &bnode_for_element &rule_matches_node);
 our %EXPORT_TAGS = (
@@ -474,9 +474,15 @@ L<RDF::RDFa::Parser>.
 
 Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
-=head1 COPYRIGHT
+=head1 COPYRIGHT AND LICENCE
 
-Copyright 2008-2010 Toby Inkster
+Copyright 2008-2012 Toby Inkster
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
+
+=head1 DISCLAIMER OF WARRANTIES
+
+THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
